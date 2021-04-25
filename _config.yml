@@ -3,10 +3,13 @@ author:
   name: elkman
   email: elkmay@163.com
 description: > # this means to ignore newlines until "show_excerpts:"
-  Noting is true.
+  Nothing is true.
 
 show_excerpts: false # set to true to show excerpts on the homepage
 
+header_pages:
+  - about.md
+  # - portfolio.md
 
 # Minima date format
 # refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
