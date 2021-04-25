@@ -2,6 +2,7 @@
 layout: post
 title: "粒子群优化及其Matlab实现"
 categories: techo
+math: true
 author: elkman
 ---
 
