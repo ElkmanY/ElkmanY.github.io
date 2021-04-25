@@ -58,4 +58,4 @@ plugins:
  - jekyll-seo-tag
 
 
-markdown: kramdown
+# markdown: kramdown
