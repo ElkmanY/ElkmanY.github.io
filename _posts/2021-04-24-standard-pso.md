@@ -8,7 +8,14 @@ author: elkman
 #### 1 粒子群优化简介
 
 考虑最优化问题
-$$ \min_{\boldsymbol{x}\in \Omega}{J(\boldsymbol{x})} \tag{1}$$ 
+
+\begin{equation}
+\min_{\boldsymbol{x}\in \Omega}{J(\boldsymbol{x})}
+\end{equation}
+
+
+![1](https://latex.codecogs.com/gif.latex?\min_{\boldsymbol{x}\in \Omega}{J(\boldsymbol{x})} \tag{1})
+$$ \min_{\boldsymbol{x}\in \Omega}{J(\boldsymbol{x})}$$ 
 满足约束
 $$ \underline{\boldsymbol{x}} \leqslant \boldsymbol{x} \leqslant \overline{\boldsymbol{x}} \tag{2}$$ 
 其中，$\underline{\boldsymbol{x}}$ 和 $\overline{\boldsymbol{x}}$ 分别为设计变量 $\boldsymbol{x} \in \mathbb{R}^d$ 的下界和上界，$\Omega$ 为搜素空间
