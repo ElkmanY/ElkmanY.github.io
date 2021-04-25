@@ -105,9 +105,9 @@ Fp = F;
 
 同时初始化粒子群当前的全局最优位置，即在初始位置中的一个使目标函数值最小的位置
 
-$$
-\boldsymbol{g}(0) = \argmin_{\boldsymbol{x}} J(\boldsymbol{X}(0))
-$$
+\begin{equation}
+\boldsymbol{g}(0) = \text{arg}\min_{\boldsymbol{x}} J(\boldsymbol{X}(0))
+\end{equation}
 
 ```matlab
 F = J(X);
@@ -141,9 +141,9 @@ X_ = X + V_;
 随后根据粒子群新的位置，更新个体的曾找到的最优位置。
 即与之前的个体最优位置相比较，如果当前位置较优秀，则个体的当前位置替换个体的历史最优位置，否则不替换：
 
-$$
-\boldsymbol{P}(t+1) = \argmin_{\boldsymbol{p},\boldsymbol{x}} \{J(\boldsymbol{P}(t)),J(\boldsymbol{X}(t+1))\}
-$$
+\begin{equation}
+\boldsymbol{P}(t+1) = \text{arg}\min_{\boldsymbol{p},\boldsymbol{x}} \{J(\boldsymbol{P}(t)),J(\boldsymbol{X}(t+1))\}
+\end{equation}
 
 ```matlab
 F_ = J(X_);
@@ -154,9 +154,9 @@ Fp_ = F_.*flag + Pp.*(~flag);
 
 随后更新粒子群当前的全局最优位置，即在更新后的个体最优位置中找出一个最优解，并与全局最优解相比得到下一时刻的全局最优解：
 
-$$
-\boldsymbol{g}(t+1) = \argmin_{\boldsymbol{p}} \{J(\boldsymbol{P}(t+1)),\boldsymbol{g}(t)\}
-$$
+\begin{equation}
+\boldsymbol{g}(t+1) = \text{arg}\min_{\boldsymbol{p}} \{J(\boldsymbol{P}(t+1)),\boldsymbol{g}(t)\}
+\end{equation}
 
 ```matlab
 Fpa = [Fp_,fg(t)];
