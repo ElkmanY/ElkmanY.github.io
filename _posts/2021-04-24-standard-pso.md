@@ -8,27 +8,32 @@ categories: techo
 #### 1 粒子群优化简介
 
 考虑最优化问题
-$$ 
-\min_{\boldsymbol{x}\in \Omega}{J(\boldsymbol{x})} \tag{1}
-$$ 
+
+$\min_{\boldsymbol{x}\in \Omega}{J(\boldsymbol{x})} \tag{1}$ 
+
 满足约束
-$$ 
-\underline{\boldsymbol{x}} \leqslant \boldsymbol{x} \leqslant \overline{\boldsymbol{x}} \tag{2}
-$$ 
+
+$\underline{\boldsymbol{x}} \leqslant \boldsymbol{x} \leqslant \overline{\boldsymbol{x}} \tag{2}$ 
+
 其中，$\underline{\boldsymbol{x}}$ 和 $\overline{\boldsymbol{x}}$ 分别为设计变量 $\boldsymbol{x} \in \mathbb{R}^d$ 的下界和上界，$\Omega$ 为搜素空间
-$$\Omega = \{ \boldsymbol{x}|\underline{\boldsymbol{x}} \leqslant \boldsymbol{x} \leqslant \overline{\boldsymbol{x}} \}. \tag{3}$$
+
+$\Omega = \{ \boldsymbol{x}|\underline{\boldsymbol{x}} \leqslant \boldsymbol{x} \leqslant \overline{\boldsymbol{x}} \}. \tag{3}$
 
 在粒子群优化（PSO）中，每一个可行解被称为 “粒子”，粒子群中的每个粒子代表了 $d$ 维搜索空间中的一个点。
 在一个有 $n$ 个粒子的粒子群中，第 $i$ 个例子的位置为
-$$ \boldsymbol{x}_i = [ x_{i1}, x_{i2}, ..., x_{id}]^\text{T} \tag{4}$$ 
+
+$ \boldsymbol{x}_i = [ x_{i1}, x_{i2}, ..., x_{id}]^\text{T} \tag{4}$
 
 粒子通过不断迭代更新自己的位置来搜索最优解，粒子的轨迹满足运动学方程：
-$$ \boldsymbol{x}_i(t+1) = \boldsymbol{x}_i(t) + \boldsymbol{v}_i(t+1) \tag{5}$$式中，$t$ 为算法当前的迭代次数，而 $\boldsymbol{v}_i \in \mathbb{R}^d$ 是第 $i$ 个粒子的速度，向量的元素是该粒子在 $d$ 个维度上速度的分量。
+
+$ \boldsymbol{x}_i(t+1) = \boldsymbol{x}_i(t) + \boldsymbol{v}_i(t+1) \tag{5}$
+
+式中，$t$ 为算法当前的迭代次数，而 $\boldsymbol{v}_i \in \mathbb{R}^d$ 是第 $i$ 个粒子的速度，向量的元素是该粒子在 $d$ 个维度上速度的分量。
 
 速度矢量控制着粒子在搜索空间中移动的方式，第 $i$ 个粒子的速度定义为:
-$$
- \boldsymbol{v}_i(t+1) = \omega \boldsymbol{v}_i(t) + c_1( \boldsymbol{p}_i -\boldsymbol{x}_i(t) ) \odot \boldsymbol{r}_1 + c_2( \boldsymbol{g} -\boldsymbol{x}_i(t) ) \odot \boldsymbol{r}_2 \tag{6}
-$$ 速度由三个项组成:第一项定义了惯性或动量，通过保持先前的流动方向 $\boldsymbol{v}_i(t)$，防止粒子剧烈改变方向;第二项称为自我认知部分，它代表了粒子有回到自己曾经找到的最佳位置 $\boldsymbol{p}_i \in \mathbb{R}^d$ 的倾向;最后一项称为社会部分，它代表一个粒子向整个粒子群的当前最佳位置移动 $\boldsymbol{g} \in \mathbb{R}^d$ 的倾向。
+$ \boldsymbol{v}_i(t+1) = \omega \boldsymbol{v}_i(t) + c_1( \boldsymbol{p}_i -\boldsymbol{x}_i(t) ) \odot \boldsymbol{r}_1 + c_2( \boldsymbol{g} -\boldsymbol{x}_i(t) ) \odot \boldsymbol{r}_2 \tag{6}$ 
+ 
+速度由三个项组成:第一项定义了惯性或动量，通过保持先前的流动方向 $\boldsymbol{v}_i(t)$，防止粒子剧烈改变方向;第二项称为自我认知部分，它代表了粒子有回到自己曾经找到的最佳位置 $\boldsymbol{p}_i \in \mathbb{R}^d$ 的倾向;最后一项称为社会部分，它代表一个粒子向整个粒子群的当前最佳位置移动 $\boldsymbol{g} \in \mathbb{R}^d$ 的倾向。
 另外，加速常数 $c_1$ 和 $c_2$ 为 $[0, 4]$ 之间的实数，数值越大，代表该项占的比重越大。
 惯性权重 $\omega $ 为$[0.4, 0.8]$ 之间的实数，数值越大，粒子改变方向的趋势越小。
 $\boldsymbol{r}_1 \in \mathbb{R}^d$ 和 $\boldsymbol{r}_2 \in \mathbb{R}^d$ 为服从均匀分布的随机数向量，而 $\odot$ 为向量或矩阵对应位置元素相乘的乘法运算。
@@ -38,7 +43,7 @@ $\boldsymbol{r}_1 \in \mathbb{R}^d$ 和 $\boldsymbol{r}_2 \in \mathbb{R}^d$ 为�
 
 在Matlab中进行矩阵化的运算而非for循环，这样会节省很多执行时间。于是以下操作均是以矩阵为单位。
 根据式 $(4)$ 定义粒子群
-$$ 
+$ 
 \boldsymbol{X}=[\boldsymbol{x}_1, \boldsymbol{x}_2, ..., \boldsymbol{x}_n] = 
 \left[ 
 \begin{matrix}
@@ -47,7 +52,8 @@ x_{12} & x_{22} & \ldots & x_{n2} \\
 \vdots & \vdots & \ddots & \vdots  \\ 
 x_{1d} & x_{2d} & \ldots & x_{nd}  
 \end{matrix} \right]
-$$ 矩阵中的每一列为一个粒子，该列元素为该粒子在搜索空间 $\Omega$ 中的坐标。
+$
+矩阵中的每一列为一个粒子，该列元素为该粒子在搜索空间 $\Omega$ 中的坐标。
 同样地，粒子定义粒子群的速度矩阵
 $$ 
 \boldsymbol{V}=[\boldsymbol{v}_1, \boldsymbol{v}_2, ..., \boldsymbol{v}_n] = 
@@ -148,5 +154,7 @@ Fp = Fp_;
 ```
 
 #### 3 结语
+
 文中代码来源：*[ElkmanY/pso](https://github.com/ElkmanY/pso)*
+
 本文参考文献：*[Particle swarm optimization (PSO). A tutorial](https://www.sciencedirect.com/science/article/pii/S0169743915002117)*
