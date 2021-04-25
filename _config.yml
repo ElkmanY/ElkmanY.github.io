@@ -7,7 +7,6 @@ description: > # this means to ignore newlines until "show_excerpts:"
 
 show_excerpts: false # set to true to show excerpts on the homepage
 
-favicon: "logo.png" # name+extension of favicon (which must be put on the root folder)
 
 # Minima date format
 # refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
