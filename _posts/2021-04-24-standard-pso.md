@@ -8,14 +8,11 @@ author: elkman
 #### 1 粒子群优化简介
 
 考虑最优化问题
-$$ 
-\min_{\boldsymbol{x}\in \Omega}{J(\boldsymbol{x})} \tag{1}
-$$ 
+$$ \min_{\boldsymbol{x}\in \Omega}{J(\boldsymbol{x})} \tag{1}$$ 
 满足约束
-$$ 
-\underline{\boldsymbol{x}} \leqslant \boldsymbol{x} \leqslant \overline{\boldsymbol{x}} \tag{2}
-$$ 
+$$ \underline{\boldsymbol{x}} \leqslant \boldsymbol{x} \leqslant \overline{\boldsymbol{x}} \tag{2}$$ 
 其中，$\underline{\boldsymbol{x}}$ 和 $\overline{\boldsymbol{x}}$ 分别为设计变量 $\boldsymbol{x} \in \mathbb{R}^d$ 的下界和上界，$\Omega$ 为搜素空间
+
 $$\Omega = \{ \boldsymbol{x}|\underline{\boldsymbol{x}} \leqslant \boldsymbol{x} \leqslant \overline{\boldsymbol{x}} \}. \tag{3}$$
 
 在粒子群优化（PSO）中，每一个可行解被称为 “粒子”，粒子群中的每个粒子代表了 $d$ 维搜索空间中的一个点。
@@ -148,5 +145,6 @@ Fp = Fp_;
 ```
 
 #### 3 结语
-文中代码来源：*[ElkmanY/pso](https://github.com/ElkmanY/pso)*
-本文参考文献：*[Particle swarm optimization (PSO). A tutorial](https://www.sciencedirect.com/science/article/pii/S0169743915002117)*
+代码来源：*[ElkmanY/pso](https://github.com/ElkmanY/pso)*
+
+参考文献：*[Particle swarm optimization (PSO). A tutorial](https://www.sciencedirect.com/science/article/pii/S0169743915002117)*
