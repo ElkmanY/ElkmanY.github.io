@@ -1,22 +1,26 @@
 ---
 layout: post
 title: "粒子群优化及其Matlab实现"
-category: techo
-customexcerpt: "粒子群优化及其Matlab实现"
+categories: techo
+author: elkman
 ---
 
 #### 1 粒子群优化简介
 
 考虑最优化问题
-$$ \min_{\boldsymbol{x}\in \Omega}{J(\boldsymbol{x})} \tag{1}$$ 满足约束
-$$ \underline{\boldsymbol{x}} \leqslant \boldsymbol{x} \leqslant \overline{\boldsymbol{x}} \tag{2}$$ 其中，$\underline{\boldsymbol{x}}$ 和 $\overline{\boldsymbol{x}}$ 分别为设计变量 $\boldsymbol{x} \in \mathbb{R}^d$ 的下界和上界，$\Omega$ 为搜素空间
+$$ 
+\min_{\boldsymbol{x}\in \Omega}{J(\boldsymbol{x})} \tag{1}
+$$ 
+满足约束
+$$ 
+\underline{\boldsymbol{x}} \leqslant \boldsymbol{x} \leqslant \overline{\boldsymbol{x}} \tag{2}
+$$ 
+其中，$\underline{\boldsymbol{x}}$ 和 $\overline{\boldsymbol{x}}$ 分别为设计变量 $\boldsymbol{x} \in \mathbb{R}^d$ 的下界和上界，$\Omega$ 为搜素空间
 $$\Omega = \{ \boldsymbol{x}|\underline{\boldsymbol{x}} \leqslant \boldsymbol{x} \leqslant \overline{\boldsymbol{x}} \}. \tag{3}$$
 
 在粒子群优化（PSO）中，每一个可行解被称为 “粒子”，粒子群中的每个粒子代表了 $d$ 维搜索空间中的一个点。
 在一个有 $n$ 个粒子的粒子群中，第 $i$ 个例子的位置为
 $$ \boldsymbol{x}_i = [ x_{i1}, x_{i2}, ..., x_{id}]^\text{T} \tag{4}$$ 
-<!-- 因此整个粒子群为
-$$\boldsymbol{X}=[\boldsymbol{x}_1, \boldsymbol{x}_2, ..., \boldsymbol{x}_n]. \tag{5}$$ -->
 
 粒子通过不断迭代更新自己的位置来搜索最优解，粒子的轨迹满足运动学方程：
 $$ \boldsymbol{x}_i(t+1) = \boldsymbol{x}_i(t) + \boldsymbol{v}_i(t+1) \tag{5}$$式中，$t$ 为算法当前的迭代次数，而 $\boldsymbol{v}_i \in \mathbb{R}^d$ 是第 $i$ 个粒子的速度，向量的元素是该粒子在 $d$ 个维度上速度的分量。
