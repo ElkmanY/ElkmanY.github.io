@@ -1,7 +1,7 @@
 ---
 layout: page
-title: about
-permalink: /about/
+title: portfolio
+permalink: /portfolio/
 ---
 
 ![logo](/assets/img/logo.png#pic_center "**404 not found**")
