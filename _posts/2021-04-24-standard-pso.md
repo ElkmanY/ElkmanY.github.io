@@ -175,6 +175,6 @@ Fp = Fp_;
 ```
 
 #### 3 结语
-代码来源：*[ElkmanY/pso](https://github.com/ElkmanY/pso)*
+代码来源：repo-*[ElkmanY/pso](https://elkmany.github.io/pso/)*
 
 参考文献：*[Particle swarm optimization (PSO). A tutorial](https://www.sciencedirect.com/science/article/pii/S0169743915002117)*
