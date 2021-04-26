@@ -1,7 +1,0 @@
----
-layout: page
-title: about
-permalink: /about/
----
-
-![logo](/assets/img/logo.png#pic_center "**404 not found**")
