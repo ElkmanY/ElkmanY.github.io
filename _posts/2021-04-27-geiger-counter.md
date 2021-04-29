@@ -9,3 +9,5 @@ categories: mind
 I bought myself a Geiger counter. 
 
 I will use it properly in some particular occasion.
+
+![Geiger counter](/assets/img/2021-04-27.jpg)
