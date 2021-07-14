@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "日常"
+title: "Bai the sow"
 categories: mind
 ---
 
